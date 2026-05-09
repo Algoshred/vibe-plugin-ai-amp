@@ -6,7 +6,7 @@
  */
 
 import { Elysia } from "elysia";
-import type { HostServices, VibePlugin } from "@vibecontrols/plugin-sdk";
+import type { HostServices, VibePlugin, ProfileContext } from "@vibecontrols/plugin-sdk";
 import {
   BoundLogger,
   ProviderRegistry,
@@ -526,7 +526,7 @@ type AmpVibePlugin = VibePlugin & {
   providers?: { ai?: AIAgentProvider };
 };
 
-export const vibePlugin: AmpVibePlugin = {
+export const createPlugin = (_ctx: ProfileContext): AmpVibePlugin => ({
   capabilities: {
     secrets: "read",
     subprocess: true,
@@ -549,6 +549,4 @@ export const vibePlugin: AmpVibePlugin = {
   createRoutes: () => createPrereqsRoutes(),
   onServerStart: lifecycle.onServerStart,
   onServerStop: lifecycle.onServerStop,
-};
-
-export default vibePlugin;
+});
