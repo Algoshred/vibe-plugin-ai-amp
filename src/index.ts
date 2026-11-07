@@ -6,7 +6,11 @@
  */
 
 import { Elysia } from "elysia";
-import type { HostServices, VibePlugin, ProfileContext } from "@vibecontrols/plugin-sdk";
+import type {
+  HostServices,
+  VibePlugin,
+  ProfileContext,
+} from "@vibecontrols/plugin-sdk";
 import {
   ProviderRegistry,
   TelemetryEmitter,
@@ -19,18 +23,9 @@ import {
 type ProviderMode = "sdk" | "cli";
 
 type AISessionStatus =
-  | "active"
-  | "idle"
-  | "processing"
-  | "error"
-  | "terminated";
+  "active" | "idle" | "processing" | "error" | "terminated";
 type AILogType =
-  | "input"
-  | "output"
-  | "thinking"
-  | "event"
-  | "error"
-  | "metadata";
+  "input" | "output" | "thinking" | "event" | "error" | "metadata";
 
 interface AISessionConfig {
   name: string;
